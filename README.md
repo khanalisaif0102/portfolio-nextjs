@@ -251,7 +251,7 @@ npm start
 
 ## 🌐 Deployment Link
 
-**Live URL**: [https://saifali-portfolio.vercel.app](https://saifali-portfolio.vercel.app)
+**Live URL**: [https://portfolio-nextjs-beta-bice.vercel.app](https://portfolio-nextjs-beta-bice.vercel.app)
 
 ## 📸 Screenshots
 
