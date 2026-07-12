@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export const SkeletonLoader: React.FC<{ className?: string }> = ({ className = '' }) => {
   return (
@@ -8,7 +9,12 @@ export const SkeletonLoader: React.FC<{ className?: string }> = ({ className = '
 
 export const ProjectCardSkeleton: React.FC = () => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+    <motion.div
+      className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
       <SkeletonLoader className="w-full h-48" />
       <div className="p-6">
         <SkeletonLoader className="w-3/4 h-6 mb-4" />
@@ -24,16 +30,21 @@ export const ProjectCardSkeleton: React.FC = () => {
           <SkeletonLoader className="w-20 h-8" />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export const SkillCardSkeleton: React.FC = () => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+    <motion.div
+      className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
       <SkeletonLoader className="w-1/2 h-6 mb-4" />
       <SkeletonLoader className="w-full h-3 mb-2" />
       <SkeletonLoader className="w-full h-8" />
-    </div>
+    </motion.div>
   );
 };

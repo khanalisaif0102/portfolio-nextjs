@@ -21,6 +21,15 @@ A modern, high-performance portfolio website built with Next.js 13, React 18, Ty
 - **CSS Purging**: Tailwind CSS removes unused styles
 - **Package Optimization**: Optimized package imports for better tree-shaking
 
+### Advanced Animations (Framer Motion)
+- **Page Transitions**: Smooth fade-in animation on page load
+- **Section Reveal**: Scroll-triggered reveal animations for all sections
+- **Button Effects**: Scale and lift animations on hover, tap effect on click
+- **Loading Animations**: Fade-in skeleton loaders for better UX
+- **Card Interactions**: Hover scale effects on project and blog cards
+- **Progress Bars**: Animated skill progress bars on scroll
+- **Form Focus**: Subtle scale animations on form inputs
+
 ### Accessibility (WCAG 2.1 AA)
 - **Semantic HTML**: Proper heading structure and landmarks
 - **ARIA Labels**: Comprehensive ARIA attributes for screen readers
@@ -49,6 +58,9 @@ A modern, high-performance portfolio website built with Next.js 13, React 18, Ty
 - **PostCSS 8.4.0** - CSS transformation
 - **Autoprefixer 10.4.0** - CSS vendor prefixing
 
+### Animations
+- **Framer Motion** - Production-ready animation library for React
+
 ### Development Tools
 - **ESLint 8.57.0** - Code linting
 - **TypeScript Compiler** - Type checking
@@ -75,14 +87,23 @@ portfolio-nextjs/
 │   │   └── globals.css       # Global styles with Tailwind directives
 │   ├── components/           # Reusable React components
 │   │   ├── index.ts          # Component barrel export
-│   │   ├── Button.tsx        # Reusable button component
+│   │   ├── Button.tsx        # Reusable button with animations
 │   │   ├── Footer.tsx        # Footer component with social links
 │   │   ├── Navbar.tsx        # Navigation with dark mode toggle
 │   │   ├── ProjectCard.tsx   # Project card with image and details
 │   │   ├── Modal.tsx         # Project detail modal
 │   │   ├── BlogModal.tsx     # Blog article reading modal
 │   │   ├── LoadingSpinner.tsx# Loading spinner component
-│   │   └── SkeletonLoader.tsx# Skeleton loading states
+│   │   ├── SkeletonLoader.tsx# Skeleton loading states with animations
+│   │   ├── ScrollReveal.tsx  # Scroll-triggered animation wrapper
+│   │   └── sections/         # Page section components
+│   │       ├── index.ts      # Section exports
+│   │       ├── HeroSection.tsx    # Hero with staggered animations
+│   │       ├── AboutSection.tsx   # About section with hover effects
+│   │       ├── SkillsSection.tsx  # Skills with animated progress bars
+│   │       ├── ProjectsSection.tsx# Projects with search/filter
+│   │       ├── BlogSection.tsx     # Blog articles grid
+│   │       └── ContactSection.tsx  # Contact form with validation
 │   ├── lib/
 │   │   └── data.ts           # Mock data for portfolio content
 │   └── types/

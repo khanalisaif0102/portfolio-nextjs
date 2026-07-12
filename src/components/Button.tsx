@@ -1,9 +1,28 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+/**
+ * Button Component
+ * 
+ * A reusable button component with Framer Motion animations.
+ * Features scale-up and lift effect on hover, and scale-down on tap.
+ * 
+ * @param variant - Button style variant (primary or secondary)
+ * @param size - Button size (sm, md, or lg)
+ * @param children - Button content
+ * @param className - Additional CSS classes
+ * @param disabled - Disable button and animations
+ * @param onClick - Click handler
+ * @param type - Button type attribute
+ */
+interface ButtonProps {
   variant?: 'primary' | 'secondary';
   size?: 'sm' | 'md' | 'lg';
   children: React.ReactNode;
+  className?: string;
+  disabled?: boolean;
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -11,9 +30,11 @@ export const Button: React.FC<ButtonProps> = ({
   size = 'md',
   children,
   className = '',
-  ...props
+  disabled,
+  onClick,
+  type = 'button',
 }) => {
-  const baseStyles = 'rounded-lg font-semibold transition-all duration-300 hover:transform hover:-translate-y-0.5';
+  const baseStyles = 'rounded-lg font-semibold';
   
   const variantStyles = {
     primary: 'bg-primary text-white hover:bg-primary-dark',
@@ -27,11 +48,16 @@ export const Button: React.FC<ButtonProps> = ({
   };
   
   return (
-    <button
+    <motion.button
       className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
-      {...props}
+      whileHover={{ scale: disabled ? 1 : 1.05, y: disabled ? 0 : -2 }}
+      whileTap={{ scale: disabled ? 1 : 0.95 }}
+      transition={{ duration: 0.2 }}
+      disabled={disabled}
+      onClick={onClick}
+      type={type}
     >
       {children}
-    </button>
+    </motion.button>
   );
 };

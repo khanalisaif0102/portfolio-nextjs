@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Navbar, 
   Footer, 
@@ -16,27 +17,42 @@ import {
 } from '@/components';
 import { Project, Skill, Profile, Contact, BlogArticle } from '@/types';
 
+/**
+ * Home Page Component
+ * 
+ * Main portfolio page with all sections and data fetching logic.
+ * Handles API calls, state management, and modal interactions.
+ */
 export default function Home() {
+  // Data state
   const [profile, setProfile] = useState<Profile | null>(null);
   const [skills, setSkills] = useState<Skill[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [contact, setContact] = useState<Contact | null>(null);
   const [blogArticles, setBlogArticles] = useState<BlogArticle[]>([]);
+  
+  // Modal state
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedArticle, setSelectedArticle] = useState<BlogArticle | null>(null);
   
+  // Loading and error state
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
-  // Search and filter states
+  // Search and filter states for projects
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedTechnology, setSelectedTechnology] = useState('all');
 
+  // Fetch all data on component mount
   useEffect(() => {
     fetchData();
   }, []);
 
+  /**
+   * Fetch all portfolio data from API endpoints
+   * Uses Promise.all for parallel requests
+   */
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -93,7 +109,12 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-gray-50 dark:bg-gray-900"
+    >
       <a href="#main-content" className="skip-to-content">Skip to main content</a>
       <Navbar />
       
@@ -123,14 +144,18 @@ export default function Home() {
       <Footer />
       
       {/* Project Modal */}
-      {selectedProject && (
-        <Modal project={selectedProject} onClose={() => setSelectedProject(null)} />
-      )}
+      <AnimatePresence>
+        {selectedProject && (
+          <Modal project={selectedProject} onClose={() => setSelectedProject(null)} />
+        )}
+      </AnimatePresence>
       
       {/* Blog Modal */}
-      {selectedArticle && (
-        <BlogModal article={selectedArticle} onClose={() => setSelectedArticle(null)} />
-      )}
-    </div>
+      <AnimatePresence>
+        {selectedArticle && (
+          <BlogModal article={selectedArticle} onClose={() => setSelectedArticle(null)} />
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
