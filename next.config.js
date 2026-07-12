@@ -14,7 +14,6 @@ const nextConfig = {
   compress: true,
   swcMinify: true,
   productionBrowserSourceMaps: false,
-  optimizePackageImports: ['lucide-react'],
 };
 
 module.exports = nextConfig;

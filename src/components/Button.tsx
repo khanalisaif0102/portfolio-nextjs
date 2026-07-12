@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
  * @param children - Button content
  * @param className - Additional CSS classes
  * @param disabled - Disable button and animations
- * @param onClick - Click handler
+ * @param onClick - Click handler (accepts React.MouseEvent)
  * @param type - Button type attribute
  */
 interface ButtonProps {
@@ -21,7 +21,7 @@ interface ButtonProps {
   children: React.ReactNode;
   className?: string;
   disabled?: boolean;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   type?: 'button' | 'submit' | 'reset';
 }
 

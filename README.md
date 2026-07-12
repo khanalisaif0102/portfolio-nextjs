@@ -244,7 +244,6 @@ npm start
 - Font optimization with display: swap
 - Compression enabled in Next.js config
 - Source maps disabled in production for smaller bundles
-- Optimized package imports for better tree-shaking
 
 ## ♿ Accessibility Features
 
