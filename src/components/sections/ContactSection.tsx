@@ -51,7 +51,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact, loading
 
   /**
    * Handle form submission
-   * Validates form, simulates API call, and shows success message
+   * Validates form, sends data to the /api/contact endpoint,
+   * and shows a success or error message based on the response.
    */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,18 +63,27 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact, loading
     
     setIsSubmitting(true);
     setSubmitStatus('idle');
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setSubmitStatus('success');
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
-    
-    // Clear success message after 5 seconds
-    setTimeout(() => setSubmitStatus('idle'), 5000);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      // Clear the status message after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    }
   };
 
   /**
@@ -205,6 +215,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact, loading
                       className="text-green-500 text-sm text-center"
                     >
                       Message sent successfully!
+                    </motion.p>
+                  )}
+                  {submitStatus === 'error' && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-500 text-sm text-center"
+                    >
+                      Something went wrong. Please try again or email me directly.
                     </motion.p>
                   )}
                 </div>
