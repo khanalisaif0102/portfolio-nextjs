@@ -270,8 +270,10 @@ npm start
 - Robots.txt (can be added)
 
 ## 🌐 Deployment Link
+   
+   **Live URL**: [https://portfolio-nextjs-beta-bice.vercel.app](https://portfolio-nextjs-beta-bice.vercel.app)
 
-**Live URL**: [https://portfolio-nextjs-beta-bice.vercel.app](https://portfolio-nextjs-beta-bice.vercel.app)
+   **GitHub Repository**: [https://github.com/khanalisaif0102/portfolio-nextjs](https://github.com/khanalisaif0102/portfolio-nextjs)
 
 ## 📸 Screenshots
 
