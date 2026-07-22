@@ -19,7 +19,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skills, loading })
   }, {} as Record<string, Skill[]>);
 
   return (
-    <section id="skills" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800" aria-labelledby="skills-heading">
+    <section id="skills" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800" aria-labelledby="skills-heading">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
           <h2 id="skills-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-12 text-center">Skills</h2>

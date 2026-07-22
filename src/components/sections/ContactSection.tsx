@@ -100,10 +100,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact, loading
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800" aria-labelledby="contact-heading">
+    <section id="contact" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800" aria-labelledby="contact-heading">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
-          <h2 id="contact-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 text-center">Contact Me</h2>
+          <h2 id="contact-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-12 text-center">Contact Me</h2>
         </ScrollReveal>
         {loading ? (
           <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>

@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ profile, loading }) => {
   return (
-    <section id="home" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8" aria-labelledby="hero-heading">
+    <section id="home" className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 flex items-center" aria-labelledby="hero-heading">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           <motion.div 

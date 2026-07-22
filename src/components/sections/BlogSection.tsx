@@ -11,11 +11,18 @@ interface BlogSectionProps {
 }
 
 export const BlogSection: React.FC<BlogSectionProps> = ({ blogArticles, loading, onArticleClick }) => {
+  const handleKeyDown = (e: React.KeyboardEvent, article: BlogArticle) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onArticleClick(article);
+    }
+  };
+
   return (
-    <section id="blog" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800" aria-labelledby="blog-heading">
+    <section id="blog" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800" aria-labelledby="blog-heading">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
-          <h2 id="blog-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 text-center">Blog</h2>
+          <h2 id="blog-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-12 text-center">Blog</h2>
         </ScrollReveal>
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -44,8 +51,12 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ blogArticles, loading,
                 <motion.div
                   className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
                   onClick={() => onArticleClick(article)}
+                  onKeyDown={(e) => handleKeyDown(e, article)}
                   whileHover={{ y: -8 }}
                   transition={{ duration: 0.3 }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`Read article: ${article.title}`}
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image
