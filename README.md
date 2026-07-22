@@ -278,13 +278,13 @@ npm start
 ## 📸 Screenshots
 
 ### Home Section
-![Home Section](./public/hero.png)
+![Home Section](./public/screenshot-home.png)
 
 ### Projects Section
-![Projects Section](./public/hero.png)
+![Projects Section](./public/screenshot-projects.png)
 
 ### Dark Mode
-![Dark Mode](./public/hero.png)
+![Dark Mode](./public/screenshot-darkmode.png)
 
 ## 🔮 Future Enhancements
 
