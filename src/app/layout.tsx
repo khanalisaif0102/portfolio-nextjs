@@ -4,7 +4,18 @@ import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
+/**
+ * Root metadata for the whole site.
+ *
+ * `metadataBase` tells Next.js the canonical production URL to use when
+ * resolving any relative URLs in metadata (like the Open Graph/Twitter
+ * images below). Without it, Next.js falls back to whatever URL the
+ * current deployment happens to be running on (e.g. a random preview
+ * build URL), which is why og:image and og:url were previously pointing
+ * to the wrong domain.
+ */
 export const metadata: Metadata = {
+  metadataBase: new URL('https://portfolio-nextjs-beta-bice.vercel.app'),
   title: {
     default: 'SAIF ALI - Frontend Developer Portfolio',
     template: '%s | SAIF ALI'
@@ -13,10 +24,13 @@ export const metadata: Metadata = {
   keywords: ['frontend developer', 'web development', 'portfolio', 'SAIF ALI', 'JavaScript', 'CSS', 'HTML', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
   authors: [{ name: 'SAIF ALI' }],
   creator: 'SAIF ALI',
+
+  // Open Graph tags control how the site looks when shared on
+  // platforms like Facebook, LinkedIn, and WhatsApp.
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://saifali-portfolio.vercel.app',
+    url: 'https://portfolio-nextjs-beta-bice.vercel.app',
     title: 'SAIF ALI - Frontend Developer Portfolio',
     description: 'SAIF ALI - Frontend Developer Portfolio. Explore my projects, skills, and technical articles.',
     siteName: 'SAIF ALI Portfolio',
@@ -29,6 +43,8 @@ export const metadata: Metadata = {
       },
     ],
   },
+
+  // Twitter's own card format, used when the link is shared on X/Twitter.
   twitter: {
     card: 'summary_large_image',
     title: 'SAIF ALI - Frontend Developer Portfolio',
@@ -36,6 +52,12 @@ export const metadata: Metadata = {
     images: ['/hero.png'],
     creator: '@saifali',
   },
+
+  // Explicitly tells search engines this page should be indexed and
+  // its links followed. (If Lighthouse still reports the page as
+  // "blocked from indexing" after this, the cause is a Vercel account
+  // setting — check Project Settings > Deployment Protection — since
+  // this metadata is already correct.)
   robots: {
     index: true,
     follow: true,
@@ -58,6 +80,11 @@ export const metadata: Metadata = {
   ],
 };
 
+/**
+ * Root layout wrapping every page.
+ * Sets the HTML lang attribute, favicon links, web manifest, and the
+ * global font (Inter) applied to the whole site.
+ */
 export default function RootLayout({
   children,
 }: {
