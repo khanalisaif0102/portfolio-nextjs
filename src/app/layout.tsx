@@ -2,7 +2,11 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], display: 'swap' });
+const inter = Inter({ 
+  subsets: ['latin'], 
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 /**
  * Root metadata for the whole site.
@@ -21,12 +25,18 @@ export const metadata: Metadata = {
     template: '%s | SAIF ALI'
   },
   description: 'SAIF ALI - Frontend Developer Portfolio. Explore my projects, skills, and technical articles. Specializing in React, Next.js, and modern web development.',
-  keywords: ['frontend developer', 'web development', 'portfolio', 'SAIF ALI', 'JavaScript', 'CSS', 'HTML', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-  authors: [{ name: 'SAIF ALI' }],
+  keywords: ['frontend developer', 'web development', 'portfolio', 'SAIF ALI', 'JavaScript', 'CSS', 'HTML', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'full stack developer', 'UI/UX'],
+  authors: [{ name: 'SAIF ALI', url: 'https://github.com/khanalisaif0102' }],
   creator: 'SAIF ALI',
+  publisher: 'SAIF ALI',
+  alternates: {
+    canonical: 'https://portfolio-nextjs-beta-bice.vercel.app',
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
+  category: 'technology',
 
-  // Open Graph tags control how the site looks when shared on
-  // platforms like Facebook, LinkedIn, and WhatsApp.
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -44,20 +54,14 @@ export const metadata: Metadata = {
     ],
   },
 
-  // Twitter's own card format, used when the link is shared on X/Twitter.
   twitter: {
     card: 'summary_large_image',
     title: 'SAIF ALI - Frontend Developer Portfolio',
     description: 'SAIF ALI - Frontend Developer Portfolio. Explore my projects, skills, and technical articles.',
     images: ['/hero.png'],
-    creator: '@saifali',
+    creator: '@khanalisaif0102',
   },
 
-  // Explicitly tells search engines this page should be indexed and
-  // its links followed. (If Lighthouse still reports the page as
-  // "blocked from indexing" after this, the cause is a Vercel account
-  // setting — check Project Settings > Deployment Protection — since
-  // this metadata is already correct.)
   robots: {
     index: true,
     follow: true,
@@ -72,10 +76,9 @@ export const metadata: Metadata = {
   viewport: {
     width: 'device-width',
     initialScale: 1,
-    maximumScale: 5,
   },
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: light)', color: '#2563eb' },
     { media: '(prefers-color-scheme: dark)', color: '#111827' },
   ],
 };
@@ -90,9 +93,30 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'SAIF ALI',
+    url: 'https://portfolio-nextjs-beta-bice.vercel.app',
+    image: 'https://portfolio-nextjs-beta-bice.vercel.app/hero.png',
+    sameAs: [
+      'https://github.com/khanalisaif0102',
+      'https://www.linkedin.com/in/saif-ali-khan-5908b7395',
+    ],
+    jobTitle: 'Frontend Developer',
+    description: 'Frontend Developer specializing in React, Next.js, and modern web development.',
+    email: 'khanalisaif0102@gmail.com',
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

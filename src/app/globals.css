@@ -76,15 +76,20 @@
 /* Skip to main content link for accessibility */
 .skip-to-content {
   position: absolute;
-  top: -40px;
-  left: 0;
+  top: -100%;
+  left: 16px;
   background: #2563eb;
   color: white;
-  padding: 8px;
-  z-index: 100;
+  padding: 12px 24px;
+  z-index: 9999;
   transition: top 0.3s;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .skip-to-content:focus {
-  top: 0;
+  top: 16px;
+  outline: 3px solid #1e40af;
+  outline-offset: 2px;
 }
