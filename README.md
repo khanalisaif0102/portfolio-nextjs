@@ -133,7 +133,7 @@ portfolio-nextjs/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/saifali/portfolio-nextjs.git
+git clone https://github.com/khanalisaif0102/portfolio-nextjs.git
    cd portfolio-nextjs
    ```
 
@@ -306,7 +306,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 👨‍💻 Author
 
 **SAIF ALI**
-- **GitHub**: [@saifali](https://github.com/saifali)
+- **GitHub**: [@khanalisaif0102](https://github.com/khanalisaif0102)
 - **LinkedIn**: [SAIF ALI](https://www.linkedin.com/in/saif-ali-khan-5908b7395)
 - **Email**: khanalisaif0102@gmail.com
 
