@@ -1,21 +1,25 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Navbar, 
-  Footer, 
-  Modal, 
-  BlogModal, 
-  Button,
-  HeroSection,
-  AboutSection,
-  SkillsSection,
-  ProjectsSection,
-  BlogSection,
-  ContactSection
-} from '@/components';
+import { Navbar, Footer, Button, HeroSection } from '@/components';
 import { Project, Skill, Profile, Contact, BlogArticle } from '@/types';
+
+/**
+ * Below-the-fold sections and modals are loaded with next/dynamic.
+ * This keeps their JavaScript out of the initial bundle, so the browser
+ * only downloads and runs it once the user actually needs it (either by
+ * scrolling down, or by opening a modal). The Hero section stays a normal
+ * import since it's the first thing visible and shouldn't be delayed.
+ */
+const AboutSection = dynamic(() => import('@/components/sections/AboutSection').then(m => m.AboutSection));
+const SkillsSection = dynamic(() => import('@/components/sections/SkillsSection').then(m => m.SkillsSection));
+const ProjectsSection = dynamic(() => import('@/components/sections/ProjectsSection').then(m => m.ProjectsSection));
+const BlogSection = dynamic(() => import('@/components/sections/BlogSection').then(m => m.BlogSection));
+const ContactSection = dynamic(() => import('@/components/sections/ContactSection').then(m => m.ContactSection));
+const Modal = dynamic(() => import('@/components/Modal').then(m => m.Modal));
+const BlogModal = dynamic(() => import('@/components/BlogModal').then(m => m.BlogModal));
 
 /**
  * Home Page Component
