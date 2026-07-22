@@ -21,10 +21,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://portfolio-nextjs-beta-bice.vercel.app'),
   title: {
-    default: 'SAIF ALI - Frontend Developer Portfolio',
+    default: 'SAIF ALI - Frontend Developer Portfolio | React & Next.js Expert',
     template: '%s | SAIF ALI'
   },
-  description: 'SAIF ALI - Frontend Developer Portfolio. Explore my projects, skills, and technical articles. Specializing in React, Next.js, and modern web development.',
+  description: 'SAIF ALI - Frontend Developer Portfolio showcasing modern web development projects, technical skills, and articles. Expert in React, Next.js, TypeScript, and creating responsive, accessible web applications.',
   keywords: ['frontend developer', 'web development', 'portfolio', 'SAIF ALI', 'JavaScript', 'CSS', 'HTML', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'full stack developer', 'UI/UX'],
   authors: [{ name: 'SAIF ALI', url: 'https://github.com/khanalisaif0102' }],
   creator: 'SAIF ALI',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://portfolio-nextjs-beta-bice.vercel.app',
     title: 'SAIF ALI - Frontend Developer Portfolio',
-    description: 'SAIF ALI - Frontend Developer Portfolio. Explore my projects, skills, and technical articles.',
+    description: 'SAIF ALI - Frontend Developer Portfolio showcasing modern web development projects, technical skills, and articles. Expert in React, Next.js, TypeScript, and creating responsive, accessible web applications.',
     siteName: 'SAIF ALI Portfolio',
     images: [
       {
@@ -50,6 +50,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'SAIF ALI - Frontend Developer',
+        type: 'image/png',
       },
     ],
   },
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'SAIF ALI - Frontend Developer Portfolio',
-    description: 'SAIF ALI - Frontend Developer Portfolio. Explore my projects, skills, and technical articles.',
+    description: 'SAIF ALI - Frontend Developer Portfolio showcasing modern web development projects, technical skills, and articles. Expert in React, Next.js, TypeScript, and creating responsive, accessible web applications.',
     images: ['/hero.png'],
     creator: '@khanalisaif0102',
   },
@@ -104,8 +105,14 @@ export default function RootLayout({
       'https://www.linkedin.com/in/saif-ali-khan-5908b7395',
     ],
     jobTitle: 'Frontend Developer',
-    description: 'Frontend Developer specializing in React, Next.js, and modern web development.',
+    description: 'Frontend Developer specializing in React, Next.js, TypeScript, and creating responsive, accessible web applications.',
     email: 'khanalisaif0102@gmail.com',
+    knowsAbout: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Web Development', 'Frontend Development'],
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Freelance'
+    },
+    alumniOf: 'Computer Science',
   };
 
   return (
