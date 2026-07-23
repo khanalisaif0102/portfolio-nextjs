@@ -23,9 +23,11 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skills, loading })
         <ScrollReveal>
           <h2 id="skills-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-12 text-center">Skills</h2>
         </ScrollReveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 min-h-[400px]">
           {loading ? (
-            Array.from({ length: 3 }).map((_, i) => <SkillCardSkeleton key={i} />)
+            <div className="contents">
+              {Array.from({ length: 3 }).map((_, i) => <SkillCardSkeleton key={i} />)}
+            </div>
           ) : (
             Object.entries(skillsByCategory).map(([category, categorySkills], index) => (
               <ScrollReveal key={category} delay={index * 0.1}>

@@ -105,7 +105,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact, loading
           <h2 id="contact-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-12 text-center">Contact Me</h2>
         </ScrollReveal>
         {loading ? (
-          <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>
+          <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse min-h-[400px]"></div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <ScrollReveal delay={0.1}>

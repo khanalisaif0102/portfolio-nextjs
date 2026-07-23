@@ -10,10 +10,10 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ profile, loading }) => {
   return (
-    <section id="home" className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 flex items-center" aria-labelledby="hero-heading">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div className="flex-1 w-full">
+    <section id="home" className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 flex items-center" aria-labelledby="hero-heading" style={{ minHeight: '100vh' }}>
+      <div className="max-w-7xl mx-auto w-full">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 min-h-[500px]">
+          <div className="flex-1 w-full min-w-0">
             {loading ? (
               <div className="space-y-4">
                 <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-1/3"></div>
@@ -50,7 +50,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, loading }) =>
               </>
             )}
           </div>
-          <div className="flex-1 flex justify-center w-full">
+          <div className="flex-1 flex justify-center w-full min-h-[320px]">
             {loading ? (
               <div className="w-64 h-64 sm:w-80 sm:h-80 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse"></div>
             ) : (

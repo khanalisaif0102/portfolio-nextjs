@@ -95,7 +95,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
 
         {/* Projects Grid */}
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 min-h-[600px]">
             {Array.from({ length: 6 }).map((_, i) => <ProjectCardSkeleton key={i} />)}
           </div>
         ) : filteredProjects.length === 0 ? (

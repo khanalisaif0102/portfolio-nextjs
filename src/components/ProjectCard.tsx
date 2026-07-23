@@ -25,7 +25,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
       tabIndex={0}
       aria-label={`${project.name} project`}
     >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 overflow-hidden aspect-[3/2]">
         <Image
           src={project.image}
           alt={project.name}

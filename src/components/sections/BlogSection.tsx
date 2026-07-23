@@ -24,7 +24,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ blogArticles, loading,
           <h2 id="blog-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-12 text-center">Blog</h2>
         </ScrollReveal>
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 min-h-[400px]">
             {Array.from({ length: 3 }).map((_, i) => (
               <div key={i} className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden animate-pulse">
                 <div className="h-48 bg-gray-200 dark:bg-gray-600"></div>
@@ -55,7 +55,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ blogArticles, loading,
                   role="button"
                   aria-label={`Read article: ${article.title}`}
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-48 overflow-hidden aspect-[3/2]">
                     <Image
                       src={article.image}
                       alt={article.title}
