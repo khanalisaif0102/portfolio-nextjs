@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ScrollReveal, Button } from '@/components';
 import { Profile } from '@/types';
 
@@ -33,27 +32,15 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ profile, loading }) 
                   {profile?.description}
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
-                  <motion.div 
-                    className="bg-white dark:bg-gray-800 rounded-lg p-4"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-4 hover:scale-[1.02] transition-all duration-200">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Title</h4>
                     <p className="text-gray-600 dark:text-gray-300">{profile?.title}</p>
-                  </motion.div>
-                  <motion.div 
-                    className="bg-white dark:bg-gray-800 rounded-lg p-4"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
+                  </div>
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-4 hover:scale-[1.02] transition-all duration-200">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Email</h4>
                     <p className="text-gray-600 dark:text-gray-300">{profile?.email}</p>
-                  </motion.div>
-                  <motion.div 
-                    className="bg-white dark:bg-gray-800 rounded-lg p-4"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
+                  </div>
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-4 hover:scale-[1.02] transition-all duration-200">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">LinkedIn</h4>
                     <a 
                       href={profile?.linkedin} 
@@ -63,12 +50,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ profile, loading }) 
                     >
                       View Profile
                     </a>
-                  </motion.div>
-                  <motion.div 
-                    className="bg-white dark:bg-gray-800 rounded-lg p-4"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
+                  </div>
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-4 hover:scale-[1.02] transition-all duration-200">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">GitHub</h4>
                     <a 
                       href={profile?.github} 
@@ -78,16 +61,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ profile, loading }) 
                     >
                       View Profile
                     </a>
-                  </motion.div>
+                  </div>
                 </div>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <div className="hover:scale-[1.02] transition-all duration-200">
                   <Button className="w-full" onClick={() => window.open('/resume.pdf', '_blank')}>
                     Download Resume
                   </Button>
-                </motion.div>
+                </div>
               </div>
             </div>
           </ScrollReveal>

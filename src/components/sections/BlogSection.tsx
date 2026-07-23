@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components';
 import { BlogArticle } from '@/types';
 
@@ -48,12 +47,10 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ blogArticles, loading,
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {blogArticles.map((article, index) => (
               <ScrollReveal key={article.id} delay={index * 0.1}>
-                <motion.div
-                  className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+                <div
+                  className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-2"
                   onClick={() => onArticleClick(article)}
                   onKeyDown={(e) => handleKeyDown(e, article)}
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.3 }}
                   tabIndex={0}
                   role="button"
                   aria-label={`Read article: ${article.title}`}
@@ -81,7 +78,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ blogArticles, loading,
                       Read More →
                     </button>
                   </div>
-                </motion.div>
+                </div>
               </ScrollReveal>
             ))}
           </div>

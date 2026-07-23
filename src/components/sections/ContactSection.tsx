@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { ScrollReveal, Button } from '@/components';
 import { Contact } from '@/types';
 
@@ -116,37 +115,31 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact, loading
                   I'm currently looking for new opportunities. Feel free to reach out!
                 </p>
                 <div className="space-y-3 sm:space-y-4">
-                  <motion.a
+                  <a
                     href={`mailto:${contact?.email}`}
-                    className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
+                    className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors hover:translate-x-1"
                   >
                     <span className="text-xl sm:text-2xl">📧</span>
                     <span className="text-sm sm:text-base break-all">{contact?.email}</span>
-                  </motion.a>
-                  <motion.a
+                  </a>
+                  <a
                     href={contact?.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
+                    className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors hover:translate-x-1"
                   >
                     <span className="text-xl sm:text-2xl">💼</span>
                     <span className="text-sm sm:text-base">LinkedIn Profile</span>
-                  </motion.a>
-                  <motion.a
+                  </a>
+                  <a
                     href={contact?.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
+                    className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors hover:translate-x-1"
                   >
                     <span className="text-xl sm:text-2xl">💻</span>
                     <span className="text-sm sm:text-base">GitHub Profile</span>
-                  </motion.a>
+                  </a>
                 </div>
               </div>
             </ScrollReveal>
@@ -155,50 +148,44 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact, loading
                 <div className="space-y-3 sm:space-y-4">
                   <div>
                     <label htmlFor="contact-name" className="sr-only">Your Name</label>
-                    <motion.input
+                    <input
                       id="contact-name"
                       name="name"
                       type="text"
                       placeholder="Your Name"
                       value={formData.name}
                       onChange={handleChange}
-                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm sm:text-base`}
+                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm sm:text-base transition-all duration-200 focus:scale-[1.01] focus:ring-2 focus:ring-primary focus:border-transparent`}
                       aria-required="true"
-                      whileFocus={{ scale: 1.01 }}
-                      transition={{ duration: 0.2 }}
                     />
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                   </div>
                   <div>
                     <label htmlFor="contact-email" className="sr-only">Your Email</label>
-                    <motion.input
+                    <input
                       id="contact-email"
                       name="email"
                       type="email"
                       placeholder="Your Email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm sm:text-base`}
+                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm sm:text-base transition-all duration-200 focus:scale-[1.01] focus:ring-2 focus:ring-primary focus:border-transparent`}
                       aria-required="true"
-                      whileFocus={{ scale: 1.01 }}
-                      transition={{ duration: 0.2 }}
                     />
                     {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                   </div>
                   <div>
                     <label htmlFor="contact-message" className="sr-only">Your Message</label>
-                    <motion.textarea
+                    <textarea
                       id="contact-message"
                       name="message"
                       placeholder="Your Message"
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
-                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-800 text-gray-900 dark:text-white resize-none text-sm sm:text-base`}
+                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-800 text-gray-900 dark:text-white resize-none text-sm sm:text-base transition-all duration-200 focus:scale-[1.01] focus:ring-2 focus:ring-primary focus:border-transparent`}
                       aria-required="true"
-                      whileFocus={{ scale: 1.01 }}
-                      transition={{ duration: 0.2 }}
-                    ></motion.textarea>
+                    ></textarea>
                     {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                   </div>
                   <Button 
@@ -209,22 +196,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact, loading
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                   {submitStatus === 'success' && (
-                    <motion.p
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="text-green-500 text-sm text-center"
-                    >
+                    <p className="text-green-500 text-sm text-center">
                       Message sent successfully!
-                    </motion.p>
+                    </p>
                   )}
                   {submitStatus === 'error' && (
-                    <motion.p
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="text-red-500 text-sm text-center"
-                    >
+                    <p className="text-red-500 text-sm text-center">
                       Something went wrong. Please try again or email me directly.
-                    </motion.p>
+                    </p>
                   )}
                 </div>
               </form>

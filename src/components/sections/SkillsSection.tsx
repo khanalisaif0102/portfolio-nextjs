@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ScrollReveal, SkillCardSkeleton } from '@/components';
 import { Skill } from '@/types';
 
@@ -30,11 +29,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skills, loading })
           ) : (
             Object.entries(skillsByCategory).map(([category, categorySkills], index) => (
               <ScrollReveal key={category} delay={index * 0.1}>
-                <motion.div 
-                  className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 sm:p-6"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 sm:p-6 hover:scale-[1.02] transition-all duration-200">
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-4">{category}</h3>
                   <div className="space-y-3 sm:space-y-4">
                     {categorySkills.map((skill) => (
@@ -44,18 +39,15 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skills, loading })
                           <span className="text-sm sm:text-base text-gray-600 dark:text-gray-400">{skill.level}%</span>
                         </div>
                         <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-1.5 sm:h-2">
-                          <motion.div
-                            className="bg-primary h-1.5 sm:h-2 rounded-full"
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, delay: 0.2 }}
-                          ></motion.div>
+                          <div
+                            className="bg-primary h-1.5 sm:h-2 rounded-full transition-all duration-1000 ease-out"
+                            style={{ width: `${skill.level}%` }}
+                          ></div>
                         </div>
                       </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               </ScrollReveal>
             ))
           )}

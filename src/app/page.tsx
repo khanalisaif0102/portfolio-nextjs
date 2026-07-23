@@ -2,24 +2,26 @@
 
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Navbar, Footer, Button, HeroSection } from '@/components';
+import { Button } from '@/components';
 import { Project, Skill, Profile, Contact, BlogArticle } from '@/types';
 
 /**
- * Below-the-fold sections and modals are loaded with next/dynamic.
- * This keeps their JavaScript out of the initial bundle, so the browser
- * only downloads and runs it once the user actually needs it (either by
- * scrolling down, or by opening a modal). The Hero section stays a normal
- * import since it's the first thing visible and shouldn't be delayed.
+ * All sections are loaded with next/dynamic to reduce initial bundle size.
+ * Navbar and HeroSection use loading states to improve perceived performance.
  */
-const AboutSection = dynamic(() => import('@/components/sections/AboutSection').then(m => m.AboutSection));
-const SkillsSection = dynamic(() => import('@/components/sections/SkillsSection').then(m => m.SkillsSection));
-const ProjectsSection = dynamic(() => import('@/components/sections/ProjectsSection').then(m => m.ProjectsSection));
-const BlogSection = dynamic(() => import('@/components/sections/BlogSection').then(m => m.BlogSection));
-const ContactSection = dynamic(() => import('@/components/sections/ContactSection').then(m => m.ContactSection));
-const Modal = dynamic(() => import('@/components/Modal').then(m => m.Modal));
-const BlogModal = dynamic(() => import('@/components/BlogModal').then(m => m.BlogModal));
+const Navbar = dynamic(() => import('@/components/Navbar').then(m => m.Navbar), { ssr: true });
+const HeroSection = dynamic(
+  () => import('@/components/sections/HeroSection').then(m => m.HeroSection),
+  { loading: () => <div className="min-h-screen flex items-center justify-center">Loading...</div> }
+);
+const AboutSection = dynamic(() => import('@/components/sections/AboutSection').then(m => m.AboutSection), { ssr: false });
+const SkillsSection = dynamic(() => import('@/components/sections/SkillsSection').then(m => m.SkillsSection), { ssr: false });
+const ProjectsSection = dynamic(() => import('@/components/sections/ProjectsSection').then(m => m.ProjectsSection), { ssr: false });
+const BlogSection = dynamic(() => import('@/components/sections/BlogSection').then(m => m.BlogSection), { ssr: false });
+const ContactSection = dynamic(() => import('@/components/sections/ContactSection').then(m => m.ContactSection), { ssr: false });
+const Footer = dynamic(() => import('@/components/Footer').then(m => m.Footer), { ssr: false });
+const Modal = dynamic(() => import('@/components/Modal').then(m => m.Modal), { ssr: false });
+const BlogModal = dynamic(() => import('@/components/BlogModal').then(m => m.BlogModal), { ssr: false });
 
 /**
  * Home Page Component
@@ -113,12 +115,7 @@ export default function Home() {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gray-50 dark:bg-gray-900"
-    >
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <a href="#main-content" className="skip-to-content">Skip to main content</a>
       <Navbar />
       
@@ -148,18 +145,14 @@ export default function Home() {
       <Footer />
       
       {/* Project Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <Modal project={selectedProject} onClose={() => setSelectedProject(null)} />
-        )}
-      </AnimatePresence>
+      {selectedProject && (
+        <Modal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      )}
       
       {/* Blog Modal */}
-      <AnimatePresence>
-        {selectedArticle && (
-          <BlogModal article={selectedArticle} onClose={() => setSelectedArticle(null)} />
-        )}
-      </AnimatePresence>
-    </motion.div>
+      {selectedArticle && (
+        <BlogModal article={selectedArticle} onClose={() => setSelectedArticle(null)} />
+      )}
+    </div>
   );
 }

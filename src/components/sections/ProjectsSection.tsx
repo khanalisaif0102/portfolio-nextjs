@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ScrollReveal, ProjectCard, ProjectCardSkeleton } from '@/components';
 import { Project } from '@/types';
 
@@ -53,26 +52,22 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         <ScrollReveal delay={0.1}>
           <div className="mb-6 sm:mb-8 space-y-4" role="search" aria-label="Filter projects">
             <label htmlFor="search-input" className="sr-only">Search projects</label>
-            <motion.input
+            <input
               id="search-input"
               type="text"
               placeholder="Search projects..."
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent text-sm sm:text-base"
-              whileFocus={{ scale: 1.01 }}
-              transition={{ duration: 0.2 }}
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent text-sm sm:text-base transition-all duration-200 focus:scale-[1.01]"
             />
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <label htmlFor="category-select" className="sr-only">Filter by category</label>
-              <motion.select
+              <select
                 id="category-select"
                 value={selectedCategory}
                 onChange={(e) => onCategoryChange(e.target.value)}
-                className="w-full sm:w-auto px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm sm:text-base"
-                whileFocus={{ scale: 1.01 }}
-                transition={{ duration: 0.2 }}
+                className="w-full sm:w-auto px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm sm:text-base transition-all duration-200 focus:ring-2 focus:ring-primary focus:border-transparent focus:scale-[1.01]"
               >
                 <option value="all">All Categories</option>
                 <option value="web">Web Development</option>
@@ -80,22 +75,20 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                 <option value="uiux">UI/UX Design</option>
                 <option value="data">Data Analysis</option>
                 <option value="other">Other</option>
-              </motion.select>
+              </select>
               
               <label htmlFor="technology-select" className="sr-only">Filter by technology</label>
-              <motion.select
+              <select
                 id="technology-select"
                 value={selectedTechnology}
                 onChange={(e) => onTechnologyChange(e.target.value)}
-                className="w-full sm:w-auto px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm sm:text-base"
-                whileFocus={{ scale: 1.01 }}
-                transition={{ duration: 0.2 }}
+                className="w-full sm:w-auto px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm sm:text-base transition-all duration-200 focus:ring-2 focus:ring-primary focus:border-transparent focus:scale-[1.01]"
               >
                 <option value="all">All Technologies</option>
                 {allTechnologies.map((tech) => (
                   <option key={tech} value={tech}>{tech}</option>
                 ))}
-              </motion.select>
+              </select>
             </div>
           </div>
         </ScrollReveal>
